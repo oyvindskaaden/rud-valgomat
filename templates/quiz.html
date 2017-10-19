@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3>{{spm}}</h3>
+
+
+<div class="answer" id="accept">
+  <form method="POST" action="/">
+    <input type="submit" name="submit" class="nbad" value="Ja">
+    <input type="submit" name="submit" class="bad"value="Nei">
+  </form>
+</div>
+
+{% endblock %}
