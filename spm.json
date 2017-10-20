@@ -1,41 +1,41 @@
 {
-	"1":{
+	"0":{
 		"spm": "Er du glad i å jobbe med teori hele dagen uten noen form for praktiske øvelser?",
 		"vekt": [
 			[],
 			[]
 		]
 	},
-	"2":{
+	"1":{
 		"spm": "Jeg ønsker å være med på å finne nye tekniske løsninger som gjøre hverdagen enklere og miljøet bedre?",
 		"vekt": [
 			[],
 			[]
 		]
 	},
-	"3":{
+	"2":{
 		"spm": "Liker du praktiske fag?",
 		"vekt": [
 			[],
 			[]
 		]
 	},
-	"4":{
+	"3":{
 		"spm": "Ønsker du en lærlingeplass med lønn som del av utdannelsen din?",
 		"vekt": [
 			[],
 			[]
 		]
 	},
-	"5":{
+	"4":{
 		"spm": "Liker å gå i butikker som Clas Ohlson, Biltema, Jula, Kjell og Company etc.?",
 		"vekt": [
 			[],
 			[]
 		]
 	},
-	"6":{
-		"spm": "Nigg?",
+	"5":{
+		"spm": "Du får en PC fra noen du kjenner. Det viser seg at maskinen ikke virker ",
 		"vekt": [
 			[],
 			[]
