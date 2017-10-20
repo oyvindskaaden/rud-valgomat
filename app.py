@@ -5,14 +5,6 @@ from flask import Flask, render_template, request, make_response, redirect, url_
 import ast
 import json
 
-def store_answer(answer, spmFile):
-    cookie = ast.literal_eval(request.cookies.get("ans"))
-    cookie.append(answer)
-    print(cookie)
-
-    spm = get_question(cookie, spmFile)
-
-    return resp
 
 def get_question(cookie, spm):
     #returnerer streng med spørsmål
