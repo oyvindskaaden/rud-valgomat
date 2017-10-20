@@ -12,18 +12,24 @@ def store_answer(answer, spmFile):
 
     spm = get_question(cookie, spmFile)
 
-    resp = make_response(render_template("quiz.html", spm=spm))
-    resp.set_cookie("ans", str(cookie))
     return resp
 
-def get_question(answers, spm):
+def get_question(cookie, spm):
     #returnerer streng med spørsmål
-    sprsm = spm[str(len(answers))]["spm"]
-    return sprsm
+    print(len(cookie), len(spm))
+    if len(cookie) >= len(spm):
+        print("overflow")
+        return (redirect(url_for('resultat')), True)
+    else:
+        sprsm = spm[str(len(cookie))]["spm"]
+        return (sprsm, False)
 
-def answers_done(spm):
+def answers_done(spm, cookie):
     #returnerer bool om lenden på cookien er like lang som antall spørsmål
-    return False
+    if len(cookie) >= len(spm):
+        return True
+    else:
+        return False
 
 app = Flask(__name__)
 
@@ -31,28 +37,29 @@ app = Flask(__name__)
 def index():
     with open("spm.json", "r") as f:
         spmFile = json.load(f)
-    if answers_done(spmFile):
-        # reroute til /resultat
-        return redirect(url_for('resultat'))
 
-    elif request.method == "POST":
+    if request.method == "POST":
+        cookie = ast.literal_eval(request.cookies.get("ans"))
+        print(cookie)
         print(request.form["submit"])
         if request.form["submit"] == "Ja":
             answer = 1
-            resp = store_answer(answer, spmFile)
-            return resp
         elif request.form["submit"] == "Nei":
             answer = 0
-            resp = store_answer(answer, spmFile)
-            return resp
+        cookie.append(answer)
     elif request.method == "GET":
         cookie = []
 
-        spm = get_question(cookie,spmFile)
 
+    spm, done = get_question(cookie, spmFile)
+
+    if done:
+        return redirect(url_for('resultat'))
+    else:
         resp = make_response(render_template("quiz.html", spm=spm))
         resp.set_cookie("ans", str(cookie))
         return resp
+
 
 @app.route('/resultat')
 def resultat():
