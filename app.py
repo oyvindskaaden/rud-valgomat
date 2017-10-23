@@ -56,6 +56,32 @@ def index():
 @app.route('/resultat')
 def resultat():
     #må regne ut riktig linje og lagre linjen som variabelet linje
+    cookie = ast.literal_eval(request.cookies.get("ans"))
+    print(cookie)
+
+    ans = cookie
+    #ans = [1,1,1,1,0,0,1,1,1,1]
+
+    svar = ["svar 1", "svar 2","svar 3","svar 4","svar 5","svar 6"]
+
+    result = [0,0,0,0,0,0]
+
+    with open("spm.json", "r") as f:
+        spmFile = json.load(f)
+
+    for i in ans:
+        vekt = spmFile[str(i)]["vekt"]
+        for j in range(len(vekt[0])):
+            print(j)
+            result[j] += vekt[ans[j]][j]
+
+    maxPos = 0
+    for i in range(len(result)):
+        print(maxPos,i)
+        if result[maxPos] < result[i]:
+            maxPos = i;
+
+    linje = svar[maxPos]
 
     return render_template("resultat.html", linje = linje)
 
