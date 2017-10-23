@@ -46,7 +46,9 @@ def index():
     spm, done = get_question(cookie, spmFile)
 
     if done:
-        return redirect(url_for('resultat'))
+        resp = make_response(redirect(url_for('resultat')))
+        resp.set_cookie("ans", str(cookie))
+        return resp
     else:
         resp = make_response(render_template("quiz.html", spm=spm))
         resp.set_cookie("ans", str(cookie))
@@ -62,7 +64,11 @@ def resultat():
     ans = cookie
     #ans = [1,1,1,1,0,0,1,1,1,1]
 
-    svar = ["svar 1", "svar 2","svar 3","svar 4","svar 5","svar 6"]
+    with open("svar.json", "r") as f:
+        svarFile = json.load(f)
+    svar = svarFile["svar"]
+
+    #svar = ["svar 1", "svar 2","svar 3","svar 4","svar 5","svar 6"]
 
     result = [0,0,0,0,0,0]
 
@@ -75,6 +81,7 @@ def resultat():
             print(j)
             result[j] += vekt[ans[j]][j]
 
+    print(result)
     maxPos = 0
     for i in range(len(result)):
         print(maxPos,i)
