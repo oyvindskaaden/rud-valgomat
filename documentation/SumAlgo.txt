@@ -1,9 +1,16 @@
-Get the array *vekt* from spm.json and array *ans * from cookie;
-
-
+Get the array *vekt* from spm.json, array *ans* from cookie and array *svar*;
 
 for i = 0; i < *ans*.length; i++;{
   for j = 0; j < *vekt*.length; j++; {
-    result(j) += vekt(j, ans(i))
+    result(j) += vekt(j, ans(i));
   }
 }
+
+maxPos = 0;
+for i = 0; i < *result*.lenght; i++ {
+  if result(maxPos) < result(i){
+    maxPos = i;
+  }
+}
+
+return svar(maxPos)
