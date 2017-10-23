@@ -1,0 +1,9 @@
+Get the array *vekt* from spm.json and array *ans * from cookie;
+
+
+
+for i = 0; i < *ans*.length; i++;{
+  for j = 0; j < *vekt*.length; j++; {
+    result(j) += vekt(j, ans(i))
+  }
+}
