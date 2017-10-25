@@ -5,24 +5,29 @@ from flask import Flask, render_template, request, make_response, redirect, url_
 import ast
 import json
 
-
 def get_question(cookie, spm):
-    #returnerer streng med spørsmål
+    #returnerer streng med spørsmål og om alle spørsmålene er ferdig
     print(len(cookie), len(spm))
     if len(cookie) >= len(spm):
         print("overflow")
-        return (redirect(url_for('resultat')), True)
+        return ("Alle spørsmål er ferdig", True)
     else:
         sprsm = spm[str(len(cookie))]["spm"]
         return (sprsm, False)
 
-def answers_done(spm, cookie):
-    #returnerer bool om lenden på cookien er like lang som antall spørsmål
-    if len(cookie) >= len(spm):
-        return True
-    else:
-        return False
-
+def get_linje(result):
+    print("res ", result)
+    maxPos = 0
+    rng = 2
+    for i in range(len(result)):
+        if result[maxPos] < result[i]:
+            maxPos = i;
+        for j in range(i+1,len(result)):
+            if abs(result[i]-result[j]) <= rng:
+                maxPos = 1
+                print("hey hey")
+                return maxPos
+    return maxPos
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -41,7 +46,6 @@ def index():
         cookie.append(answer)
     elif request.method == "GET":
         cookie = []
-
 
     spm, done = get_question(cookie, spmFile)
 
@@ -62,33 +66,29 @@ def resultat():
     print(cookie)
 
     ans = cookie
-    #ans = [1,1,1,1,0,0,1,1,1,1]
+    #ans = [1,1,1,1,0,0,1,1,0,0,0]
+    print(ans)
 
     with open("svar.json", "r") as f:
         svarFile = json.load(f)
     svar = svarFile["svar"]
-
-    #svar = ["svar 1", "svar 2","svar 3","svar 4","svar 5","svar 6"]
 
     result = [0,0,0,0,0,0]
 
     with open("spm.json", "r") as f:
         spmFile = json.load(f)
 
-    for i in ans:
+    for i in range(len(ans)):
         vekt = spmFile[str(i)]["vekt"]
+        print(i)
+        print(ans)
         for j in range(len(vekt[0])):
-            print(j)
-            result[j] += vekt[ans[j]][j]
+            print(" ",j, " ", vekt[ans[i]][j])
+            result[j] += vekt[ans[i]][j]
 
-    print(result)
-    maxPos = 0
-    for i in range(len(result)):
-        print(maxPos,i)
-        if result[maxPos] < result[i]:
-            maxPos = i;
 
-    linje = svar[maxPos]
+
+    linje = svar[get_linje(result)]
 
     return render_template("resultat.html", linje = linje)
 
