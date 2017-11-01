@@ -22,11 +22,13 @@ def get_linje(result):
     for i in range(len(result)):
         if result[maxPos] < result[i]:
             maxPos = i;
-        for j in range(i+1,len(result)):
-            if abs(result[i]-result[j]) <= rng:
-                maxPos = 1
-                print("hey hey")
+
+    for i in range(len(result)):
+        if i != maxPos:
+            if abs(result[i]-result[maxPos]) <= rng:
+                maxPos = i
                 return maxPos
+
     return maxPos
 app = Flask(__name__)
 

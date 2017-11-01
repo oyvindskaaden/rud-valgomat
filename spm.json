@@ -49,14 +49,14 @@
 		]
 	},
 	"7":{
-		"spm": "",
+		"spm": "Jeg ønsker å bidra til videreutvikling av dagens plusshus?",
 		"vekt": [
 			[0,0,0,0,0,0],
-			[0,0,0,0,0,0]
+			[0,3,0,0,10,0]
 		]
 	},
 	"8":{
-		"spm": "Jeg kunne tenke meg å jobbe med styringssystemer som skal sikre gode klima og miljøforhold i boliger og næringsbygg?",
+		"spm": "Jeg ønsker å jobbe med styringssystemer som skal sikre et godt inneklima.",
 		"vekt": [
 			[0,0,0,0,0,0],
 			[0,1,1,1,10,1]
@@ -77,10 +77,10 @@
 		]
 	},
 	"11":{
-		"spm": "",
+		"spm": "Mener du at elektrisitet som energikilde vil være viktig i vårt framtidige samfunn?",
 		"vekt": [
 			[0,0,0,0,0,0],
-			[0,0,0,0,0,0]
+			[0,1,1,10,1,1]
 		]
-	},
+	}
 }
