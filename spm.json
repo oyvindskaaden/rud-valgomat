@@ -37,21 +37,28 @@
 	"5":{
 		"spm": "Du får en PC fra noen du kjenner. Det viser seg at maskinen ikke virker. Begynner du å lete på nettet for å finne ut av feilen og setter i gang med å reparere den selv?",
 		"vekt": [
-			[9,2,2,2,2,2],
-			[1,7,9,6,6,9]
+			[0,0,0,0,0,0],
+			[0,4,9,0,0,9]
 		]
 	},
 	"6":{
 		"spm": "Det skal lages et nytt kjøkken hjemme hos deg, og alt det elektriske må gjøres om. Er du interessert i hvordan elektrikeren løser dette arbeidet?",
 		"vekt": [
-			[9,2,2,2,2,2],
-			[1,9,6,9,6,6]
+			[0,0,0,0,0,0],
+			[0,7,1,9,2,1]
+		]
+	},
+	"7":{
+		"spm": "",
+		"vekt": [
+			[0,0,0,0,0,0],
+			[0,0,0,0,0,0]
 		]
 	},
 	"8":{
 		"spm": "Jeg kunne tenke meg å jobbe med styringssystemer som skal sikre gode klima og miljøforhold i boliger og næringsbygg?",
 		"vekt": [
-			[3,3,3,3,0,3],
+			[0,0,0,0,0,0],
 			[0,1,1,1,10,1]
 		]
 	},
@@ -65,8 +72,15 @@
 	"10":{
 		"spm": "I matematikk får jeg normalt karakteren fire eller bedre",
 		"vekt": [
-			[0,0,0,0,0,-30],
+			[0,7,9,7,7,-30],
 			[0,0,0,0,0,10]
 		]
-	}
+	},
+	"11":{
+		"spm": "",
+		"vekt": [
+			[0,0,0,0,0,0],
+			[0,0,0,0,0,0]
+		]
+	},
 }
