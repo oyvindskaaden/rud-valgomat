@@ -6,5 +6,10 @@
 		"Vg1 Elektrofag med El-Energi som fordypning ser ut til å passe!",
 		"Vg1 Elektrofag med Ventilasjonsteknikk ser ut til å passe!",
 		"Vg1 Elektrofag med Data og Elektronikk som fordypning og studiekometanse ser ut til å passe!"
+	],
+	"title": "Rud Elektrofag Valg-O-Mat",
+	"buttons": [
+		["Ja", "#00ff00", "#ffffff"],
+		["Nei", "#ff0000", "#ffffff"]
 	]
 }
