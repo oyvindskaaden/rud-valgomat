@@ -18,7 +18,7 @@ def get_question(cookie, spm):
 def get_linje(result):
     print("res ", result)
     maxPos = 0
-    rng = 2
+    rng = 5
     for i in range(len(result)):
         if result[maxPos] < result[i]:
             maxPos = i;
@@ -26,10 +26,11 @@ def get_linje(result):
     for i in range(len(result)):
         if i != maxPos:
             if abs(result[i]-result[maxPos]) <= rng:
-                maxPos = i
+                maxPos = 1
                 return maxPos
 
     return maxPos
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
